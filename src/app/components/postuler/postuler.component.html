@@ -1,0 +1,96 @@
+
+  
+<section>
+    <form #devisForm="ngForm" (ngSubmit)="ajDevis()">  
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div>
+        <h5>Préparer un devis pour l'appel d'offres : "{{aoInfo.ref}}" </h5> <br>
+            <h5>Titre : {{aoInfo.title}}</h5>
+            <h5>Budget : {{aoInfo.budget}}</h5>
+            <h5>Date Limite des Réception des Offres : {{aoInfo.limitDate}}</h5>
+            <h5>Donneur d'Ordre : {{aoInfo.idLauncher.rs}}</h5>
+    </div>
+
+    
+
+    <div class="row">
+       
+        <div class="col-lg-6">
+
+        
+            <!-- Basic Card Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Descriptif</h6>
+                </div>
+                <div class="card-body">
+                   
+                    
+                    <div class="row">
+                        
+                        <div class="col-lg-12">
+                            
+                                <label class="font-weight-bold text-success mb-1"for="exampleFormControlTextarea1"><h6>Votre Offre</h6></label>
+                                <textarea class="form-control" id="text1" rows="3" placeholder="Texte" [(ngModel)]="devi.text" [ngModelOptions]="{standalone : true}"></textarea>
+                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Options</h6>
+                </div>
+                <div class="card-body">
+                <div class="row">                                     
+                    <div class="col-lg-6">
+                        <label class="font-weight-bold text-success mb-1"><h6>Document</h6></label>
+
+                        <div class="custom-file">
+                            
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                          </div>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="font-weight-bold text-success mb-1"for="exampleFormControlText"><h6>Prix total Suggéré</h6></label>
+                        <input class="form-control" type="number" id="prix" [(ngModel)]="devi.prix" [ngModelOptions]="{standalone : true}">
+
+                    </div>
+                </div>
+                    <br>
+                    
+
+                    <div class="row">
+                        
+                        <div class="col-lg-12">
+                           
+                            <button value="submit" class="btn btn-primary btn-lg">Envoyer Mon Devis</button>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+
+
+
+        </div>
+
+    
+    </div>
+        
+
+    
+
+
+</div>
+
+</form>
+</section>

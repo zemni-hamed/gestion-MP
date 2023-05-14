@@ -1,0 +1,223 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Marchés Privés</h1>
+    <p class="mb-4">Suivez tous les besoins de nos abonnés, envoyez des devis et saisissez de nouvelles opportunités
+        dans votre secteur d’activité. <br>
+        <a target="_blank" href="https://www.obat.fr/blog/marche-prive/">Marchés Privés documentation</a>.
+    </p>
+
+    
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Actualités</h6>
+        </div>
+        <div class="card-body">
+            <div class="table" id="tabactu">
+
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Référence</th>
+                            <th>Titre</th>
+                            <th>Lieux</th>
+                            <th>Lancé par</th>
+                            <th>Budget</th>
+                            <th>DLR</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let a of tabActu">
+                            <td>{{a.ref}}<span class="badge badge-danger" *ngIf = "compareDate(a.launchDate) === 1"> New</span></td>
+                            <td>{{a.title}}</td>
+                            <td>{{a.place}}</td>
+                            <td>{{a.idLauncher.rs}}</td>
+                            <td>{{a.budget}}</td>
+                            <td>{{a.limitDate}}</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <button type="button" value="submit" class="btn btn-warning" (click) ="addFav(a._id)">Fav</button>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <button type="button" value="submit" class="btn btn-info" data-toggle="modal"
+                                            data-target="#exampleModal" (click) ="getAO(a._id)"><i
+                                                class="fas fa-fw fa-info-circle"></i>Info</button>
+                                    </div>
+                                </div>
+                            </td>
+                        
+                        </tr>
+
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Liste des Favoris</h6>
+        </div>
+        <div class="card-body">
+            <div class="table" id="tabfav">
+                <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Référence</th>
+                            <th>Titre</th>
+                            <th>Lieux</th>
+                            <th>Lancé par</th>
+                            <th>Budget</th>
+                            <th>DLR</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                   
+                    <tbody>
+                        <tr *ngFor = "let b of tabActuFav">
+                            <td>{{b.ref}}<span class="badge badge-danger" *ngIf = "compareDate(b.launchDate) === 1"> New</span></td>
+                            <td>{{b.title}}</td>
+                            <td>{{b.place}}</td>
+                            <td>{{b.idLauncher.rs}}</td>
+                            <td>{{b.budget}}</td>
+                            <td>{{b.limitDate}}</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <button type="button" value="submit" class="btn btn-warning" (click) ="notFav(b._id)">Not Fav</button>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <button type="button" value="submit" class="btn btn-info" data-toggle="modal"
+                                            data-target="#exampleModal" (click)="getAO(b._id)"><i
+                                                class="fas fa-fw fa-info-circle"></i>Info</button>
+                                    </div>
+                                </div>
+                            </td>
+    
+                        </tr>   
+                    </tbody>
+                </table>      
+
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Actualités</h6>
+        </div>
+        <div class="card-body">
+            <div class="table">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Référence</th>
+                            <th>Titre</th>
+                            <th>Lieux</th>
+                            <th>Lancé par</th>
+                            <th>Budget</th>
+                            <th>DLR</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr *ngFor = "let a of tabActu">
+                            <td>{{a._id}}<span class="badge badge-danger"> New</span></td>
+                            <td>{{a.title}}</td>
+                            <td>{{a.place}}</td>
+                            <td>{{a.idLauncher.rs}}</td>
+                            <td>{{a.budget}}</td>
+                            <td>{{a.limitDate}}</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <button type="button" value="submit" class="btn btn-warning"
+                                            onclick="addFav()">Fav</button>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <button type="button" value="submit" class="btn btn-info" data-toggle="modal"
+                                            data-target="#exampleModal" (click)="getAO(a._id)"><i
+                                                class="fas fa-fw fa-info-circle"></i>Info</button>
+                                    </div>
+                                </div>
+                            </td>
+    
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+
+
+
+
+</div>
+<!-- /.container-fluid -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Détails de l'Appel d'offres</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="displayao">
+            <h6>
+                Référence AO : {{aoInfo.ref}}
+            </h6><hr>
+            <h6>  
+                Donneur d'Ordre: 
+            </h6> <p>{{aoInfo.idLauncher.rs}} </p><br>
+            <p>Mail : {{aoInfo.idLauncher.email}}</p><br>
+            <p>Tel : {{aoInfo.idLauncher.tel}}</p><br>
+            <p>Adresse : {{aoInfo.idLauncher.adresse}}</p><hr>
+
+            <h6>
+                Titre : 
+            </h6> <p>{{aoInfo.title}}</p><br>
+            <h6> 
+                Date limite de réponse : 
+            </h6> <p>{{aoInfo.limitDate}}</p><br>
+            <h6> 
+                Discriptif AO: 
+            </h6> <p>{{aoInfo.text}}</p><br>
+
+            <h6> 
+                Lieu d'exécution : 
+            </h6> <p>{{aoInfo.place}}</p><br>
+            <h6> 
+                Budget : 
+            </h6> <p>{{aoInfo.budget}}</p><br>
+            <h6> 
+                Livraison : 
+            </h6> <p>{{aoInfo.delivery}}</p><br>
+            <h6> 
+                Rectificatifs : 
+            </h6> <p>{{aoInfo.rectifs}}</p><br>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="postuler(aoInfo._id)">Envoyer Devis</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  

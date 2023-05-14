@@ -1,0 +1,75 @@
+
+<div class="row">
+
+    <div class="col-lg-12">
+
+    
+        <!-- Basic Card Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Tous mes Devis</h6>
+            </div>
+        
+            <div class="card-body">
+               
+                <div class="row">
+                    
+                    <div class="col-lg-12">
+                       <table class="table" id="listedevis1">
+                        <thead>
+                            <tr>
+                              <th scope="col">Réf</th>
+                              <th scope="col">texte</th>
+                              <th scope="col">prix</th>
+                              <th scope="col">Date d'envoi</th>
+                              <th scope="col">état</th>
+                              <th scope="col">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <ng-container *ngFor = "let d of mesDevis; let i = index">
+                            <tr>
+
+                                <th scope="row">{{d.ref}}</th>
+                                <td>{{d.text}}</td>
+                                <td>{{d.prix}}</td>
+                                <td>{{d.launchDate}}</td>
+                                <td>{{d.statu}}</td>
+                                <td><div class="row">
+                                    <div class="col-lg-6"><button type="button" value="submit" class="btn btn-success" (click)="toggleRow(i, d._id)" *ngIf = "d.msg">Message<span class="badge badge-danger" *ngIf = "d.notifCandidat === '1'"> New</span></button></div>
+                                    <div class="col-lg-6"><button type="button" value="submit" class="btn btn-danger" (click)="deleteDevis(d._id)">Anuler</button></div>
+                                </div>
+                            </td>
+                              </tr>
+                              <tr *ngIf="i === selectedRow">
+                                
+                                <td colspan="6"><span>
+                                    
+                                    <div>{{d.msg}}</div>
+                                    <form #sendMsg="ngForm" (ngSubmit)="sendMessage(d._id)"> 
+                                    <div class="row">
+                                      
+                                    <div class="col-lg-9"><textarea class="form-control" id="msg"  cols="60" rows="3" placeholder="message" [(ngModel)]="message" [ngModelOptions]="{standalone : true}"></textarea></div>
+                                    <div class="col-lg-3"><button class="btn btn-primary">Envoyer Message</button>Au DO de l'appel d'offre ref : {{d.idAo.ref}}</div>
+                                
+                                </div>
+                                </form> 
+                                </span></td>
+                            
+                            </tr>
+                            </ng-container>
+                        </tbody>
+                       </table>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+
+    
+
+
+</div>

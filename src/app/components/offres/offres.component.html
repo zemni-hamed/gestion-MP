@@ -1,0 +1,261 @@
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800" id="ref"></h1>
+    </div>
+
+    <div class="row">
+
+        <!-- Earnings (Monthly) Card Example -->
+        <!-- <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Earnings (Monthly)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Earnings (Annual) Card Example -->
+        <!-- <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Earnings (Annual)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Tasks Card Example -->
+        <!-- <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-info" role="progressbar"
+                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Pending Requests Card Example -->
+        <!-- <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Pending Requests</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div> 
+
+    <div class="row">
+
+        <div class="col-lg-8">
+
+        
+            <!-- Basic Card Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Les Offres</h6><br>
+                    <p>*Inser la référence de l'AO pour voir les réponses des candidats</p>
+                    <form #listeOffres="ngForm" (ngSubmit)="listerDevis()">
+                    <div class="input-group">
+                        
+                            
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputIDAO">Référence :</span>
+                        </div>
+                        
+                        <input type="text" class="form-control" id="idAO" placeholder="..." aria-describedby="inputGroupPrepend2" required [(ngModel)]="critRech.ref" [ngModelOptions]="{standalone : true}">
+                    
+                        <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputIDAO">Afficher</span>
+                        </div> 
+                        <select id="bestprice" class="form-control" [(ngModel)]="critRech.nbrAfich" [ngModelOptions]="{standalone : true}">
+                          <option selected>Tous les Offres</option>
+                          <option>Les 5 meilleurs prix</option>
+                          <option>Les 10 meilleurs prix</option>
+                        </select>
+
+                        <button class="btn btn-primary btn-sm">GO</button>
+                    
+                </div>
+            </form>
+                </div>
+            
+                <div class="card-body" id="listeOffres1">
+                    <div class="row">
+                        <!-- Earnings (Annual) Card Example -->
+                           <div class="col-lg-6 mb-4">
+                               <div class="card border-left-success shadow h-100 py-2">
+                                   <div class="card-body">
+                                       <div class="row no-gutters align-items-center">
+                                           <div class="col mr-2">
+                                               <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                               Meilleur Prix</div>
+                                               <div class="h5 mb-0 font-weight-bold text-gray-800">{{bestPrice}}</div>
+                                           </div>
+                                           <div class="col-auto">
+                                               <i class="fas fa-euro-sign fa-2x text-gray-300"></i>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                            
+                       <!-- Pending Requests Card Example -->
+                           <div class="col-lg-6 mb-4">
+                              <div class="card border-left-warning shadow h-100 py-2">
+                                  <div class="card-body">
+                                      <div class="row no-gutters align-items-center">
+                                          <div class="col mr-2">
+                                              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                  Nombre de Réponses</div>
+                                              <div class="h5 mb-0 font-weight-bold text-gray-800">{{nbrDev}}</div>
+                                          </div>
+                                          <div class="col-auto">
+                                              <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                        </div> 
+                       <table class="table table-striped">
+                     <thead>
+                       <tr>
+                         <th scope="col">Référence</th>
+                         <th scope="col">Candidat</th>
+                         <th scope="col">Offre</th>
+                         <th scope="col">File</th>
+                         <th scope="col">Prix</th>
+                         <th scope="col">Action</th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                    <ng-container *ngFor = "let d of mesDevis; let i = index">
+                        
+                        <tr >
+                            <th scope="row">{{d.ref}}</th>
+                            <td><p>{{d.idCandidate.rs}}</p></td>
+                            <td><p>{{d.text}}</p></td>
+                            <td><i class="fa fa-file" aria-hidden="true"></i></td>
+                            <td>{{d.prix}}</td>
+                            <td><button type="button" class="btn btn-success btn-sm" (click)="accepter(d)">Accepter</button>
+                            <button type="button" class="btn btn-warning btn-sm" (click)="toggleRow(i, d._id)">+Détails<span class="badge badge-danger" *ngIf = "d.notifDO === '1'"> New</span></button></td>
+                        </tr>
+                        
+                            <tr *ngIf="i === selectedRow">
+                                
+                                <td colspan="6"><span>
+                                    
+                                    <div>{{d.msg}}</div>
+                                    <form #sendMsg="ngForm" (ngSubmit)="sendMessage(d._id)"> 
+                                    <div class="row">
+                                      
+                                    <div class="col-lg-9"><textarea class="form-control" id="msg"  cols="60" rows="3" placeholder="message" [(ngModel)]="message" [ngModelOptions]="{standalone : true}"></textarea></div>
+                                    <div class="col-lg-3"><button class="btn btn-primary">Envoyer Message</button>A {{d.idCandidate.rs}}</div>
+                                
+                                </div>
+                                </form> 
+                                </span></td>
+                            
+                            </tr>
+                        
+                        </ng-container>
+                    </tbody>
+                </table>
+             
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Mes Appels d'Offres</h6>
+                </div>
+                <div class="card-body">
+                <div class="row">                                     
+                    <div class="col-lg-12">
+                        <table class="table" id="listeaos2">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Réf</th>
+                                    <th scope="col">titre</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor = "let u of mesAO" >
+                                    <th>{{u.ref}}</th>
+                                    <td>{{u.title}}</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+              
+                      
+                </div>
+                </div>
+            
+            </div>
+
+
+
+        </div>
+    </div>
+        
+
+    
+    
+
+</div>
+<!-- /.container-fluid -->
+
+</div>

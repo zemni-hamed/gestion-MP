@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+h6 {
+    font-weight: 600;
+    font-style: oblique;
+    font-size: 1em;
+    color: black;
+  }
+
+  h5{
+    font-weight: 600;
+    
+    font-size: 1em;
+    color: rgba(10, 10, 190, 0.884);
+  }

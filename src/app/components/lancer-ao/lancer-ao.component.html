@@ -1,0 +1,244 @@
+<section>
+    
+    <form #aloncerAOForm="ngForm" (ngSubmit)="addAo()">
+        <div class="form-group row">
+
+            <div class="col-lg-6"> 
+
+
+                <!-- Basic Card Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Descriptif</h6>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="row">
+                            
+
+                            <div class="col-lg-12">
+                                <label class="font-weight-bold text-success mb-1" for="exampleFormControlText">
+                                    <h6>Titre</h6>
+                                </label>
+                                <input class="form-control" type="text" placeholder="Titre" id="title" [(ngModel)]="ao.title" [ngModelOptions]="{standalone : true}">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+
+                            <div class="col-lg-12">
+
+                                <label class="font-weight-bold text-success mb-1" for="exampleFormControlTextarea1">
+                                    <h6>Texte de l'Appel d'Offres</h6>
+                                </label>
+                                <textarea class="form-control" id="text" rows="3" placeholder="Texte" [(ngModel)]="ao.text" [ngModelOptions]="{standalone : true}"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Options</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label class="font-weight-bold text-success mb-1" for="inputSA">
+                                    <h6>Secteurs d'activité</h6>
+                                </label>
+                                <select id="inputSA" class="form-control" [(ngModel)]="ao.sa" [ngModelOptions]="{standalone : true}">
+                                    <option selected>Informatique-télécoms</option>
+                                    <option>Consulting-formation-finance</option>
+                                    <option>Mobilité-transport</option>
+                                    <option>Industrie-sécurité-matériels</option>
+                                    <option>Sanitaire-social</option>
+                                    <option>Énergie-environnement-hygiène</option>
+                                    <option>Culture-loisir-restauration</option>
+                                    <option>Travaux-construction</option>
+                                    <option>Urbanisme-immobilier</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="font-weight-bold text-success mb-1" for="exampleFormControlText">
+                                    <h6>Budget</h6>
+                                </label>
+                                <input class="form-control" type="number" id="budget" [(ngModel)]="ao.budget" [ngModelOptions]="{standalone : true}">
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label class="font-weight-bold text-success mb-1" for="inputplace">
+                                    <h6>Lieux d'exécution</h6>
+                                </label>
+                                <select id="inputplace" class="form-control" [(ngModel)]="ao.place" [ngModelOptions]="{standalone : true}">
+                                    <option selected>Toute la France</option>
+                                    <option>Auvergne-Rhône-Alpes</option>
+                                    <option>Bourgogne-Franche-Comté</option>
+                                    <option>Bretagne</option>
+                                    <option>Centre-Val de Loire</option>
+                                    <option>Corse</option>
+                                    <option>Grand Est</option>
+                                    <option>Hauts-de-France</option>
+                                    <option>Île-de-France</option>
+                                    <option>Normandie</option>
+                                    <option>Nouvelle-Aquitaine</option>
+                                    <option>Occitanie</option>
+                                    <option>Pays de la Loire</option>
+                                    <option>Provence-Alpes-Côte d'Azur</option>
+                                    <option>Guadeloupe</option>
+                                    <option>Martinique</option>
+                                    <option>Guyane</option>
+                                    <option>La Réunion</option>
+                                    <option>Mayotte</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="font-weight-bold text-success mb-1" for="inputFrRegion">
+                                    <h6>Région fournisseur</h6>
+                                </label>
+                                <select id="inputFrRegion" class="form-control" [(ngModel)]="ao.placeVendor" [ngModelOptions]="{standalone : true}">
+                                    <option selected>Toute la France</option>
+                                    <option>Auvergne-Rhône-Alpes</option>
+                                    <option>Bourgogne-Franche-Comté</option>
+                                    <option>Bretagne</option>
+                                    <option>Centre-Val de Loire</option>
+                                    <option>Corse</option>
+                                    <option>Grand Est</option>
+                                    <option>Hauts-de-France</option>
+                                    <option>Île-de-France</option>
+                                    <option>Normandie</option>
+                                    <option>Nouvelle-Aquitaine</option>
+                                    <option>Occitanie</option>
+                                    <option>Pays de la Loire</option>
+                                    <option>Provence-Alpes-Côte d'Azur</option>
+                                    <option>Guadeloupe</option>
+                                    <option>Martinique</option>
+                                    <option>Guyane</option>
+                                    <option>La Réunion</option>
+                                    <option>Mayotte</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label class="font-weight-bold text-success mb-1">
+                                    <h6>Document</h6>
+                                </label>
+
+                                <div class="custom-file">
+
+                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="col-lg-6">
+
+                                <label class="font-weight-bold text-success mb-1" for="livraison">
+                                    <h6>Livraison</h6>
+                                </label>
+                                <fieldset class="form-group" id="livraison">
+                                    <div class="row">
+
+                                        <div class="col-sm-10">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gridRadios"
+                                                    id="gridRadios1" value="Au choix" checked [(ngModel)]="ao.delivery" [ngModelOptions]="{standalone : true}">
+                                                <label class="form-check-label" for="gridRadios1">
+                                                    Au choix
+                                                </label>
+                                            </div>
+
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gridRadios"
+                                                    id="gridRadios2" value="Oui" [(ngModel)]="ao.delivery" [ngModelOptions]="{standalone : true}">
+                                                <label class="form-check-label" for="gridRadios2">
+                                                    Oui
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gridRadios"
+                                                    id="gridRadios2" value="Non"[(ngModel)]="ao.delivery" [ngModelOptions]="{standalone : true}">
+                                                <label class="form-check-label" for="gridRadios2">
+                                                    Non
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                            </div>
+
+
+                        </div>
+                        <br>
+                        <hr>
+                        <p>*Si vous voulez limiter la liste des candidats et vous connaissez déjà des fournisseurs,
+                            insérez les raisons sociales de ces derniers pour qu’ils reçoivent cet appel d’offres
+                            exclusivement</p>
+                        <div class="row">
+                            <div class="col-lg-4"><label class="font-weight-bold text-success mb-1"
+                                    for="exampleFormControlText">
+                                    <h6>Frn 1</h6>
+                                </label>
+                                <input class="form-control" type="text" placeholder="..." id="titlefr">
+                            </div>
+                            <div class="col-lg-4"><label class="font-weight-bold text-success mb-1"
+                                    for="exampleFormControlText">
+                                    <h6>Frn 2</h6>
+                                </label>
+                                <input class="form-control" type="text" placeholder="..." id="titlefr">
+                            </div>
+                            <div class="col-lg-4"><label class="font-weight-bold text-success mb-1"
+                                    for="exampleFormControlText">
+                                    <h6>Frn 3</h6>
+                                </label>
+                                <input class="form-control" type="text" placeholder="..." id="titlefr">
+                            </div>
+
+                        </div>
+                        <hr>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label class="font-weight-bold text-warning mb-1" for="datelimit">
+                                    <h6>Date limite</h6>
+                                </label>
+                                <div class="input-group date" data-provide="datepicker">
+                                    <input type="date" class="form-control" id="datelimit" [(ngModel)]="ao.limitDate" [ngModelOptions]="{standalone : true}">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+
+                                <button class="btn btn-primary btn-lg">Lancer AO</button>
+                            
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+           
+
+            </div>
+       
+        </div>
+    </form>
+</section>
